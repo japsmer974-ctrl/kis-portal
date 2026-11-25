@@ -1,0 +1,2936 @@
+
+/* =========================================
+   KIS APPLICATION - MAIN STYLES
+   Katipunan Integrated School
+========================================= */
+
+/* 1. DESIGN SYSTEM */
+
+:root {
+  --primary: #166534;
+  --dark-green: #14532d;
+  --gold: #facc15;
+  --white: #ffffff;
+  --background: #f4f7f5;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+  padding-bottom: 90px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* 2. HEADER */
+
+6.app-header {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: var(--dark-green);
+  overflow: hidden;
+}
+
+.kis-header-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.school-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.school-logo {
+  width: 46px;
+  height: 46px;
+  background: var(--gold);
+  color: var(--dark-green);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.school-info h1 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.school-info p {
+  font-size: 11px;
+  color: #dcfce7;
+}
+
+.profile-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  font-size: 17px;
+}
+
+/* 3. MAIN CONTENT */
+
+.main-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 22px 18px;
+}
+
+/* 4. WELCOME SECTION */
+
+.welcome-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--dark-green)
+  );
+  color: white;
+  padding: 27px 23px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.welcome-text h2 {
+  font-size: 25px;
+  margin-bottom: 9px;
+}
+
+.welcome-text > p:last-child {
+  font-size: 13px;
+  color: #dcfce7;
+  line-height: 1.5;
+}
+
+.welcome-decoration {
+  font-size: 65px;
+  color: rgba(255,255,255,0.15);
+  padding-right: 5px;
+}
+
+/* 5. SECTION HEADINGS */
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 17px;
+}
+
+.section-heading h2 {
+  color: var(--dark-green);
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+.section-heading p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #15803d;
+  background-color: rgba(34, 197, 94, 0.13);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  padding: 5px 9px;
+  border-radius: 30px;
+}
+
+/* 6. DASHBOARD CARDS */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.dashboard-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 18px 15px;
+  min-height: 155px;
+  position: relative;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.dashboard-card:active {
+  transform: scale(0.97);
+}
+
+.card-icon {
+  width: 43px;
+  height: 43px;
+  background: #dcfce7;
+  color: var(--primary);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+
+.dashboard-card h3 {
+  font-size: 14px;
+  color: var(--dark-green);
+  margin-bottom: 7px;
+}
+
+.dashboard-card p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+  padding-right: 10px;
+}
+
+.card-arrow {
+  position: absolute;
+  right: 14px;
+  bottom: 17px;
+  color: var(--primary);
+  font-size: 12px;
+}
+
+/* 7. SCHOOL INFORMATION */
+
+.information-section {
+  margin-top: 32px;
+}
+
+.information-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  box-shadow: var(--shadow);
+}
+
+.information-icon {
+  width: 42px;
+  height: 42px;
+  background: #dcfce7;
+  color: var(--primary);
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.information-card > div:nth-child(2) {
+  flex: 1;
+}
+
+.information-card h3 {
+  font-size: 13px;
+  color: var(--dark-green);
+  margin-bottom: 5px;
+}
+
+.information-card p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.information-card > i:last-child {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 8. BOTTOM NAVIGATION */
+
+.bottom-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 68px;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 9px 5px;
+  padding-bottom: max(9px, env(safe-area-inset-bottom));
+  z-index: 100;
+}
+
+.nav-item {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 10px;
+  min-width: 55px;
+}
+
+.nav-item i {
+  font-size: 18px;
+}
+
+.nav-item.active {
+  color: var(--primary);
+  font-weight: bold;
+  background: rgba(22, 101, 52, 0.12);
+  border-radius: 12px;
+}
+
+/* 9. RESPONSIVE DESIGN */
+
+@media (min-width: 700px) {
+  .main-content {
+    padding: 30px 25px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .welcome-section {
+    padding: 38px;
+  }
+}
+
+/* 10. SMALL SCREENS */
+
+@media (max-width: 360px) {
+  .school-info h1 {
+    font-size: 12px;
+  }
+
+  .welcome-text h2 {
+    font-size: 22px;
+  }
+
+  .dashboard-card {
+    padding: 14px 11px;
+  }
+}
+
+
+/* =========================================
+   KIS - NAVIGATION PAGES
+========================================= */
+
+.app-page {
+  animation: pageEnter 0.2s ease;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-heading {
+  margin: 8px 0 22px;
+}
+
+.page-heading h2 {
+  color: var(--dark-green);
+  font-size: 23px;
+  margin-bottom: 7px;
+}
+
+.page-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.page-group {
+  margin-bottom: 25px;
+}
+
+.page-group h3 {
+  color: var(--dark-green);
+  font-size: 16px;
+  margin-bottom: 13px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 17px 14px;
+  min-height: 135px;
+  text-align: left;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.feature-card:active {
+  transform: scale(0.97);
+}
+
+.feature-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #dcfce7;
+  color: var(--primary);
+  font-size: 18px;
+  margin-bottom: 13px;
+}
+
+.feature-card h4 {
+  color: var(--dark-green);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.feature-card p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.page-notice {
+  background: #dcfce7;
+  color: var(--dark-green);
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.profile-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  margin-bottom: 22px;
+}
+
+.profile-avatar {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  background: #dcfce7;
+  color: var(--primary);
+  border-radius: 50%;
+  font-size: 25px;
+}
+
+.profile-panel h3 {
+  color: var(--dark-green);
+  margin-bottom: 5px;
+}
+
+.profile-panel p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.detail-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+
+.detail-panel h3 {
+  color: var(--dark-green);
+  margin-bottom: 10px;
+}
+
+.detail-panel p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.back-button {
+  border: none;
+  background: #dcfce7;
+  color: var(--dark-green);
+  padding: 10px 15px;
+  border-radius: 9px;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 700px) {
+  .feature-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   KIS - REUSABLE DESIGN COMPONENTS
+========================================= */
+
+
+/* STATUS BADGES - CHATGPT STYLE */
+
+.kis-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 5px 10px;
+  line-height: 1.3;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.kis-badge--success {
+  background: rgba(34, 197, 94, 0.13);
+  border-color: rgba(34, 197, 94, 0.25);
+  color: #15803d;
+}
+
+.kis-badge--solid {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #ffffff;
+}
+
+.kis-badge--outlined {
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.45);
+  color: #15803d;
+}
+
+.kis-badge--neutral {
+  background: rgba(107, 114, 128, 0.12);
+  border-color: rgba(107, 114, 128, 0.22);
+  color: #4b5563;
+}
+
+.kis-badge--info {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.25);
+  color: #1d4ed8;
+}
+
+.kis-badge--warning {
+  background: rgba(234, 179, 8, 0.14);
+  border-color: rgba(234, 179, 8, 0.28);
+  color: #a16207;
+}
+
+.kis-badge--danger {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #b91c1c;
+}
+
+/* BADGE SIZES */
+
+.kis-badge--small {
+  font-size: 10px;
+  padding: 3px 7px;
+}
+
+.kis-badge--medium {
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.kis-badge--large {
+  font-size: 14px;
+  padding: 7px 13px;
+}
+
+/* BADGE SHAPES */
+
+.kis-badge--pill {
+  border-radius: 30px;
+}
+
+.kis-badge--rectangular {
+  border-radius: 6px;
+}
+
+
+/* REUSABLE BUTTONS */
+
+.kis-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 17px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.kis-button:active {
+  transform: scale(0.97);
+}
+
+.kis-button--primary {
+  background: var(--primary);
+  color: white;
+}
+
+.kis-button--secondary {
+  background: #dcfce7;
+  color: var(--dark-green);
+}
+
+.kis-button--outline {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.kis-button--danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.kis-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* SEARCH FIELD */
+
+.kis-search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+}
+
+.kis-search i {
+  color: var(--muted);
+}
+
+.kis-search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.kis-search:focus-within {
+  border-color: var(--primary);
+}
+
+/* EMPTY STATES */
+
+.kis-empty-state {
+  text-align: center;
+  padding: 35px 20px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  margin: 15px 0;
+}
+
+.kis-empty-icon {
+  font-size: 35px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.kis-empty-state h3 {
+  font-size: 15px;
+  color: var(--dark-green);
+  margin-bottom: 7px;
+}
+
+.kis-empty-state p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* LOADING INDICATOR */
+
+.kis-loader {
+  width: 27px;
+  height: 27px;
+  border: 3px solid #dcfce7;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: kisSpin 0.8s linear infinite;
+}
+
+@keyframes kisSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.kis-loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 35px 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* INTERACTION STATES */
+
+.kis-interactive {
+  transition: background 0.2s ease,
+              transform 0.2s ease;
+}
+
+.kis-interactive:active {
+  transform: scale(0.98);
+}
+
+/* ACCESSIBILITY */
+
+.kis-button:focus-visible,
+.kis-search input:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   KIS - INTERACTIVE QUIZ DESIGN
+========================================= */
+
+.kis-quiz-entry {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.kis-quiz-entry > h3 {
+  font-size: 1.25rem;
+  color: var(--dark-green);
+  margin-bottom: 8px;
+}
+
+.kis-quiz-entry > p {
+  color: #64748b;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.kis-quiz {
+  margin-top: 22px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+  animation: kisQuizAppear 0.3s ease;
+}
+
+.kis-quiz-progress {
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.kis-quiz h3 {
+  color: #172b22;
+  font-size: 1.12rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.kis-quiz-choices {
+  display: grid;
+  gap: 12px;
+}
+
+.kis-quiz-choice {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #dbe4dd;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #26352c;
+  text-align: left;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.kis-quiz-choice:not(:disabled):hover {
+  border-color: var(--primary);
+  background: #f0fdf4;
+}
+
+.kis-quiz-choice:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.kis-quiz-choice.is-correct {
+  background: #dcfce7;
+  border: 1px solid #16a34a;
+  color: #166534;
+  animation: kisAnswerCorrect 0.35s ease;
+}
+
+.kis-quiz-choice.is-incorrect {
+  background: #fee2e2;
+  border: 1px solid #dc2626;
+  color: #991b1b;
+  animation: kisAnswerIncorrect 0.3s ease;
+}
+
+@keyframes kisAnswerCorrect {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes kisAnswerIncorrect {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-4px);
+  }
+
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+/* KIS - ENHANCED QUIZ FEEDBACK */
+
+.kis-quiz-explanation {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid;
+  animation: kisFeedbackReveal 0.4s ease;
+}
+
+/* Correct answer - Green */
+
+.kis-quiz-explanation.is-correct {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  border-left: 5px solid #16a34a;
+}
+
+.kis-quiz-explanation.is-correct strong {
+  color: #166534;
+}
+
+/* Incorrect answer - Red */
+
+.kis-quiz-explanation.is-incorrect {
+  background: #fef2f2;
+  border-color: #fecaca;
+  border-left: 5px solid #dc2626;
+}
+
+.kis-quiz-explanation.is-incorrect strong {
+  color: #991b1b;
+}
+
+/* Feedback text */
+
+.kis-quiz-explanation strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+.kis-quiz-explanation p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Smooth entrance animation */
+
+@keyframes kisFeedbackReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 600px) {
+  .kis-quiz-explanation {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .kis-quiz-explanation strong {
+    font-size: 1rem;
+  }
+
+  .kis-quiz-explanation p {
+    font-size: 0.92rem;
+  }
+}
+
+/* KIS - QUIZ PROGRESS BAR */
+
+.kis-quiz-progress-track {
+  width: 100%;
+  height: 9px;
+  margin: 0 0 24px;
+  overflow: hidden;
+  background: #e5e7eb;
+  border-radius: 999px;
+}
+
+.kis-quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #166534, #22c55e);
+  border-radius: inherit;
+  transition: width 0.35s ease;
+}
+
+
+/* =========================================
+   KIS - QUIZ RESULTS UPGRADE
+========================================= */
+
+.kis-quiz-performance {
+  color: var(--dark-green);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 12px 0;
+  text-align: center;
+}
+
+.kis-quiz-score-ring {
+  width: 160px;
+  height: 160px;
+  margin: 24px auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(
+    #16a34a var(--score-progress),
+    #e5e7eb 0
+  );
+  animation: kisScoreRingReveal 0.8s ease both;
+}
+
+.kis-quiz-score-ring-inner {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.kis-quiz-score-ring-inner strong {
+  color: #166534;
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+.kis-quiz-score-ring-inner span {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.kis-quiz-results-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+@keyframes kisScoreRingReveal {
+  from {
+    transform: scale(0.75) rotate(-90deg);
+    opacity: 0.4;
+  }
+
+  to {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .kis-quiz-score-ring {
+    width: 145px;
+    height: 145px;
+  }
+
+  .kis-quiz-score-ring-inner {
+    width: 117px;
+    height: 117px;
+  }
+
+  .kis-quiz-results-actions {
+    flex-direction: column;
+  }
+
+  .kis-quiz-results-actions .kis-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================
+   KIS - QUIZ ANSWER REVIEW
+========================================= */
+
+.kis-quiz-review {
+  margin-top: 24px;
+}
+
+.kis-quiz-review > h3 {
+  color: var(--dark-green);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.kis-quiz-review > p {
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.kis-quiz-review-item {
+  padding: 20px;
+  margin-bottom: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+}
+
+.kis-quiz-review-item h4 {
+  color: #172b22;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.kis-quiz-review-item p {
+  color: #475569;
+  font-size: 0.93rem;
+  line-height: 1.7;
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+}
+
+.kis-quiz-review-item p strong {
+  color: #26352c;
+}
+
+.kis-quiz-review-item p.is-correct {
+  color: #166534;
+}
+
+.kis-quiz-review-item p.is-incorrect {
+  color: #b91c1c;
+}
+
+.kis-quiz-review > .kis-button {
+  width: 100%;
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  .kis-quiz-review-item {
+    padding: 16px;
+  }
+
+  .kis-quiz-review-item h4 {
+    font-size: 0.96rem;
+  }
+
+  .kis-quiz-review-item p {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* =========================================
+   KIS - QUIZ HISTORY
+========================================= */
+
+.kis-quiz-history {
+  margin-top: 24px;
+}
+
+.kis-quiz-history > h3 {
+  color: var(--dark-green);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.kis-quiz-history-description {
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.kis-quiz-history-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.kis-quiz-history-stat {
+  padding: 18px 10px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+}
+
+.kis-quiz-history-stat strong {
+  display: block;
+  color: #166534;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.kis-quiz-history-stat span {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.kis-quiz-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.kis-quiz-history-item {
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+}
+
+.kis-quiz-history-item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.kis-quiz-history-item-header h4 {
+  color: #172b22;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+.kis-quiz-history-item-header p {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.kis-quiz-history-item-header > strong {
+  color: #166534;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.kis-quiz-history-progress {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 16px 0 12px;
+}
+
+.kis-quiz-history-progress > div {
+  height: 100%;
+  background: #16a34a;
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.kis-quiz-history-item-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.kis-quiz-history-empty {
+  padding: 30px 20px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.kis-quiz-history-empty h4 {
+  color: #172b22;
+  margin-bottom: 8px;
+}
+
+.kis-quiz-history-empty p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.kis-quiz-history > .kis-button {
+  width: 100%;
+  margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  .kis-quiz-history-stats {
+    gap: 8px;
+  }
+
+  .kis-quiz-history-stat {
+    padding: 15px 6px;
+  }
+
+  .kis-quiz-history-stat strong {
+    font-size: 1.25rem;
+  }
+
+  .kis-quiz-history-stat span {
+    font-size: 0.72rem;
+  }
+
+  .kis-quiz-history-item {
+    padding: 15px;
+  }
+
+  .kis-quiz-history-item-footer {
+    flex-direction: column;
+  }
+}
+
+
+/* =========================================
+   KIS - QUIZ PERFORMANCE TREND
+========================================= */
+
+.kis-quiz-trend {
+  padding: 20px;
+  margin: 24px 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+}
+
+.kis-quiz-trend h4 {
+  color: #14532d;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.kis-quiz-trend > p {
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.kis-quiz-trend-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 12px;
+  min-height: 190px;
+  padding: 12px 4px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.kis-quiz-trend-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.kis-quiz-trend-column > strong {
+  color: #166534;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.kis-quiz-trend-track {
+  width: 100%;
+  max-width: 42px;
+  height: 125px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #f1f5f9;
+  border-radius: 8px 8px 3px 3px;
+}
+
+.kis-quiz-trend-bar {
+  width: 100%;
+  min-height: 3px;
+  background: linear-gradient(
+    180deg,
+    #22c55e,
+    #166534
+  );
+  border-radius: 7px 7px 2px 2px;
+  transition: height 0.4s ease;
+}
+
+.kis-quiz-trend-column > span {
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .kis-quiz-trend {
+    padding: 16px 12px;
+  }
+
+  .kis-quiz-trend-chart {
+    gap: 7px;
+  }
+
+  .kis-quiz-trend-track {
+    max-width: 30px;
+    height: 110px;
+  }
+
+  .kis-quiz-trend-column > strong {
+    font-size: 0.7rem;
+  }
+}
+
+
+/* =========================================
+   KIS - VISUAL LESSON EDITOR
+========================================= */
+
+.kis-structured-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.kis-editor-panel,
+.kis-editor-section {
+  background: #f8fafc;
+  border: 1px solid #dbe3ea;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.kis-editor-panel h3,
+.kis-editor-section h4 {
+  color: #14532d;
+  margin: 0 0 12px;
+}
+
+.kis-structured-editor label {
+  display: block;
+  font-weight: 600;
+  margin: 12px 0 6px;
+}
+
+.kis-structured-editor input,
+.kis-structured-editor textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+  color: #1e293b;
+}
+
+.kis-structured-editor textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.kis-editor-section {
+  background: #fff;
+}
+
+.kis-editor-example {
+  margin-top: 16px;
+  padding: 14px;
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+.kis-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.kis-editor-actions button,
+.kis-add-section {
+  padding: 11px 15px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.kis-add-section {
+  background: #166534;
+  color: #fff;
+}
+
+.kis-remove-section {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.kis-editor-help {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+
+/* =========================================
+   KIS - VISUAL ADMIN QUIZ EDITOR
+========================================= */
+
+.kis-quiz-question {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #dbe4dd;
+  border-left: 5px solid var(--primary);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.kis-quiz-question h3 {
+  color: var(--dark-green);
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+}
+
+.kis-quiz-question label {
+  display: block;
+  margin: 15px 0 7px;
+  color: #26352c;
+  font-weight: 600;
+}
+
+.kis-quiz-question input,
+.kis-quiz-question textarea,
+.kis-quiz-question select {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5ce;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #26352c;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.kis-quiz-question textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.kis-quiz-question input:focus,
+.kis-quiz-question textarea:focus,
+.kis-quiz-question select:focus {
+  outline: 2px solid var(--primary);
+  border-color: var(--primary);
+}
+
+.kis-quiz-question .kis-quiz-correct-answer {
+  border: 2px solid var(--primary);
+  background: #f0fdf4;
+  font-weight: 600;
+}
+
+.kis-quiz-question .kis-remove-quiz-question {
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: 1px solid #dc2626;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #b91c1c;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.kis-quiz-question .kis-remove-quiz-question:hover {
+  background: #fee2e2;
+}
+
+@media (max-width: 600px) {
+  .kis-quiz-question {
+    padding: 14px;
+  }
+
+  .kis-quiz-question input,
+  .kis-quiz-question textarea,
+  .kis-quiz-question select {
+    font-size: 16px;
+  }
+}
+
+
+/* Visual quiz editor sections */
+
+.kis-quiz-question-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.kis-quiz-question-heading span {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #f0fdf4;
+  color: #166534;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.kis-quiz-field {
+  margin: 20px 0;
+}
+
+.kis-quiz-answer-section {
+  margin: 22px 0;
+  padding: 16px;
+  border: 1px solid #e2e8e4;
+  border-radius: 10px;
+  background: #f8faf9;
+}
+
+.kis-quiz-answer-section h4 {
+  margin: 0 0 6px;
+  color: var(--dark-green);
+}
+
+.kis-quiz-answer-section > p {
+  margin: 0 0 14px;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.kis-quiz-answer-field {
+  margin-top: 14px;
+}
+
+.kis-quiz-answer-field label {
+  margin-top: 0;
+}
+
+
+/* =========================================
+   KIS CAMPUS ROLE SELECTION
+========================================= */
+
+.kis-campus-brand {
+  text-align: center;
+  padding: 25px 10px 20px;
+}
+
+.kis-campus-brand img {
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.kis-campus-brand h2 {
+  color: var(--dark-green);
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.kis-campus-brand p {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.kis-campus-brand span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.kis-role-heading {
+  text-align: center;
+  margin: 15px 0 20px;
+}
+
+.kis-role-heading h3 {
+  color: var(--dark-green);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.kis-role-heading p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.kis-role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.kis-role-button {
+  min-width: 0;
+  padding: 18px 5px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--dark-green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.kis-role-button i {
+  font-size: 25px;
+}
+
+.kis-role-button span {
+  font-size: 12px;
+}
+
+.kis-role-button:active {
+  background: #dcfce7;
+  border-color: var(--primary);
+}
+
+.kis-role-message {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 18px 0;
+}
+
+
+
+/* KIS - Keep hidden interface sections hidden */
+[hidden] {
+  display: none !important;
+}
+
+/* KIS CAMPUS - STUDENT REGISTRATION */
+
+.kis-registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  margin-top: 15px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.kis-registration-form label {
+  color: var(--dark-green);
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.kis-registration-form input,
+.kis-registration-form select {
+  width: 100%;
+  min-height: 45px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--background, #ffffff);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.kis-registration-form input:focus,
+.kis-registration-form select:focus {
+  outline: 2px solid var(--primary);
+  border-color: var(--primary);
+}
+
+.kis-registration-form button[type="submit"] {
+  width: 100%;
+  margin-top: 12px;
+  background: var(--dark-green);
+  color: white;
+  border: none;
+}
+
+#kis-back-to-roles {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 13px;
+}
+
+
+/* KIS TEACHING ROLE CARDS */
+.kis-teaching-role-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.kis-teaching-role-option {
+  min-height: 65px;
+  padding: 14px 10px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--dark-green);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kis-teaching-role-option[aria-pressed="true"] {
+  border-color: var(--dark-green);
+  background: var(--dark-green);
+  color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(22, 101, 52, 0.15);
+}
+
+.kis-teaching-role-option:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* KIS CAMPUS CALENDAR */
+.kis-calendar-card {
+  background: #ffffff;
+  color: #1f2937;
+  padding: 18px;
+  border-radius: 24px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+  margin-top: 12px;
+}
+
+.kis-calendar-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.kis-calendar-heading h2 {
+  font-size: 19px;
+  margin: 0;
+}
+
+.kis-calendar-heading button {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #14532d;
+  cursor: pointer;
+}
+
+.kis-calendar-school-year {
+  display: table;
+  margin: 12px 0 18px auto;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.kis-calendar-weekdays,
+.kis-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.kis-calendar-weekdays span {
+  text-align: center;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 0;
+}
+
+.kis-calendar-day,
+.kis-calendar-empty {
+  min-width: 0;
+  min-height: 42px;
+}
+
+.kis-calendar-day {
+  border: 1px solid rgba(107, 114, 128, 0.18);
+  border-radius: 12px;
+  background: rgba(107, 114, 128, 0.10);
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.kis-calendar-day.is-selected {
+  border-color: rgba(234, 179, 8, 0.45);
+  color: #854d0e;
+}
+
+.kis-calendar-day.event-parent:not(.is-selected) {
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #b91c1c;
+}
+
+.kis-calendar-day.event-school:not(.is-selected) {
+  border-color: rgba(34, 197, 94, 0.25);
+  color: #15803d;
+}
+
+.kis-calendar-day:focus-visible {
+  outline: 3px solid rgba(234, 179, 8, 0.55);
+  outline-offset: 2px;
+}
+
+.kis-calendar-event-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  margin-left: 3px;
+  border-radius: 999px;
+  background: #facc15;
+  color: #14532d;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.kis-calendar-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 18px 0;
+}
+
+.kis-calendar-selected h3,
+.kis-calendar-events-title {
+  font-size: 14px;
+  margin: 0 0 9px;
+}
+
+.kis-calendar-selected strong {
+  color: #166534;
+  font-size: 13px;
+}
+
+.kis-calendar-selected p {
+  font-size: 13px;
+  margin: 6px 0 0;
+}
+
+.kis-calendar-events {
+  display: grid;
+  gap: 10px;
+}
+
+.kis-calendar-event {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.kis-event-date {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 5px 9px;
+  border: 1px solid rgba(234, 179, 8, 0.28);
+  border-radius: 30px;
+  background: rgba(234, 179, 8, 0.14);
+  color: #a16207;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.kis-event-date.event-parent {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #b91c1c;
+}
+
+.kis-event-date.event-school {
+  background: rgba(34, 197, 94, 0.13);
+  border-color: rgba(34, 197, 94, 0.25);
+  color: #15803d;
+}
+
+.kis-calendar-no-events,
+.kis-calendar-sample-note {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.kis-calendar-sample-note {
+  margin-top: 16px;
+}
+
+/* KIS CALENDAR EVENT DETAILS */
+.kis-calendar-event-details {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #f0fdf4;
+  border-left: 4px solid #166534;
+}
+
+.kis-event-category {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px 10px;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 30px;
+  background: rgba(34, 197, 94, 0.13);
+  color: #15803d;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.kis-event-category.event-parent {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #b91c1c;
+}
+
+.kis-event-category.event-school {
+  background: rgba(34, 197, 94, 0.13);
+  border-color: rgba(34, 197, 94, 0.25);
+  color: #15803d;
+}
+
+.kis-calendar-event-details h4 {
+  margin: 10px 0 6px;
+  color: #14532d;
+  font-size: 15px;
+}
+
+.kis-calendar-event-details p,
+.kis-calendar-no-details {
+  margin: 0;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* KIS CALENDAR EVENT ADMIN */
+.admin-manager {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 16px 36px;
+  box-sizing: border-box;
+}
+
+.admin-manager h2 {
+  color: #14532d;
+  margin-bottom: 8px;
+}
+
+.admin-manager > p {
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.admin-manager button {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 14px;
+  margin: 6px 6px 6px 0;
+  background: #166534;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-manager button:hover {
+  background: #14532d;
+}
+
+.admin-manager #kis-back-calendar-admin,
+.admin-manager #kis-cancel-calendar-event {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.admin-manager #kis-calendar-event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  max-width: 620px;
+  margin-top: 18px;
+}
+
+.admin-manager label {
+  display: block;
+  margin-top: 8px;
+  color: #14532d;
+  font-weight: 600;
+}
+
+.admin-manager input,
+.admin-manager select,
+.admin-manager textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #fff;
+  color: #111827;
+  font: inherit;
+}
+
+.admin-manager input:focus,
+.admin-manager select:focus,
+.admin-manager textarea:focus {
+  outline: 2px solid #166534;
+  border-color: #166534;
+}
+
+.admin-manager textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.admin-manager #kis-calendar-admin-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.admin-manager .admin-dashboard-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-top: 4px solid #166534;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.admin-manager .admin-dashboard-card h3 {
+  color: #14532d;
+  overflow-wrap: anywhere;
+}
+
+.admin-manager .admin-dashboard-card p {
+  color: #475569;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.admin-manager .admin-dashboard-card button {
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .admin-manager {
+    padding: 16px 12px 28px;
+  }
+
+  .admin-manager #kis-calendar-admin-list {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-manager button {
+    padding: 10px 12px;
+  }
+}
+
+/* KIS CALENDAR CATEGORY FILTERS */
+.kis-calendar-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 16px;
+}
+
+.kis-calendar-filter {
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.kis-calendar-filter.active {
+  border-color: #14532d;
+  background: #14532d;
+  color: #ffffff;
+}
+
+.kis-calendar-filter:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .kis-calendar-filters {
+    gap: 6px;
+  }
+
+  .kis-calendar-filter {
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+}
+
+/* KIS PHILIPPINE LIVE CLOCK */
+.kis-calendar-live-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  margin: 0 0 18px;
+  padding: 8px 0;
+}
+
+#kis-calendar-ph-date {
+  color: #166534;
+  font-size: clamp(18px, 4vw, 22px);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+#kis-calendar-ph-time {
+  color: #334155;
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+
+/* KIS CALENDAR - PHILIPPINE TODAY HIGHLIGHT */
+.kis-calendar-day.is-today {
+  color: #6d28d9 !important;
+  border: 2px solid rgba(139, 92, 246, 0.65) !important;
+  font-weight: 800;
+}
+
+.kis-calendar-day.is-today:hover,
+.kis-calendar-day.is-today:focus-visible {
+  border-color: #6d28d9 !important;
+}
+
+/* KIS ADMIN STUDIO - SHARED NAVIGATION BUTTONS */
+.admin-manager button[id^="kis-back-"],
+.admin-manager button[id^="kis-cancel-"],
+.admin-manager .back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #e5e7eb;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 11px 14px;
+  margin: 6px 6px 6px 0;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-manager button[id^="kis-back-"]:hover,
+.admin-manager button[id^="kis-cancel-"]:hover,
+.admin-manager .back-button:hover {
+  background: #d1d5db;
+  color: #111827;
+}
+
+.admin-manager button[id^="kis-back-"]:focus-visible,
+.admin-manager button[id^="kis-cancel-"]:focus-visible,
+.admin-manager .back-button:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 2px;
+}
+
+/* KIS ADMIN STUDIO - UNIFIED FEATURE LAYOUT */
+.admin-manager .page-heading {
+  margin-bottom: 20px;
+}
+
+.admin-manager .page-heading h2 {
+  color: #14532d;
+  margin-bottom: 8px;
+}
+
+.admin-manager .page-heading p {
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.admin-manager .admin-form {
+  width: 100%;
+  max-width: 620px;
+  box-sizing: border-box;
+}
+
+.admin-manager input,
+.admin-manager select,
+.admin-manager textarea {
+  max-width: 100%;
+}
+
+.admin-manager button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .admin-manager {
+    padding: 16px 12px 28px;
+  }
+
+  .admin-manager .admin-form {
+    width: 100%;
+  }
+
+  .admin-manager button {
+    max-width: 100%;
+    font-size: 12px;
+  }
+}
+
+/* KIS ADMIN STUDIO - UNIFIED FEATURE LAYOUT */
+.admin-manager .page-heading {
+  margin-bottom: 20px;
+}
+
+.admin-manager .page-heading h2 {
+  color: #14532d;
+  margin-bottom: 8px;
+}
+
+.admin-manager .page-heading p {
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.admin-manager .admin-form {
+  width: 100%;
+  max-width: 620px;
+  box-sizing: border-box;
+}
+
+.admin-manager input,
+.admin-manager select,
+.admin-manager textarea {
+  max-width: 100%;
+}
+
+.admin-manager button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .admin-manager {
+    padding: 16px 12px 28px;
+  }
+
+  .admin-manager .admin-form {
+    width: 100%;
+  }
+
+  .admin-manager button {
+    max-width: 100%;
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   KIS STUDENT PROFILE - DARK GREEN DESIGN
+========================================= */
+
+.kis-student-profile {
+  padding-bottom: 30px;
+}
+
+.kis-student-profile .kis-profile-hero {
+  background: #14532d;
+  color: #ffffff;
+  padding: 25px 20px;
+  border-radius: 18px;
+  margin-bottom: 24px;
+}
+
+.kis-student-profile .kis-profile-avatar {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: #facc15;
+  color: #14532d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.kis-student-profile .kis-profile-hero h2 {
+  color: #ffffff;
+  margin: 0 0 6px;
+  font-size: 21px;
+}
+
+.kis-student-profile .kis-profile-hero p {
+  color: #e5eee7;
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.kis-student-profile .kis-profile-status {
+  display: inline-block;
+  background: #dcfce7;
+  color: #14532d;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.kis-student-profile .detail-panel {
+  background: #ffffff;
+  border: 1px solid #dce7df;
+  border-radius: 15px;
+  padding: 18px;
+  margin-bottom: 17px;
+  box-shadow: 0 3px 12px rgba(20, 83, 45, 0.06);
+}
+
+.kis-student-profile .detail-panel h3 {
+  color: #14532d;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.kis-student-profile .kis-profile-label {
+  color: #647568;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 5px;
+}
+
+.kis-student-profile .kis-profile-value {
+  color: #17251b;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  overflow-wrap: anywhere;
+}
+
+.kis-student-profile .kis-profile-action {
+  width: 100%;
+  min-height: 48px;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 13px 15px;
+  margin-top: 10px;
+  background: #f5faf6;
+  border: 1px solid #dce7df;
+  border-radius: 11px;
+  color: #14532d;
+  box-shadow: none;
+  font-size: 13px;
+}
+
+.kis-student-profile .kis-profile-action i {
+  font-size: 16px;
+}
+
+.kis-student-profile #kis-campus-signout {
+  width: 100%;
+  min-height: 48px;
+  flex-direction: row;
+  background: #fff7f7;
+  color: #a12d2d;
+  border: 1px solid #edcccc;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.kis-student-profile .kis-registration-form {
+  margin-top: 15px;
+}
+
+.kis-student-profile .back-button {
+  margin-bottom: 16px;
+}
+
+
+/* KIS STUDENT PROFILE - FINAL POLISH */
+
+.kis-student-profile {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kis-student-profile .kis-profile-hero {
+  padding: 28px 22px;
+  border-radius: 20px;
+  margin-bottom: 22px;
+}
+
+.kis-student-profile .kis-profile-avatar {
+  border: 3px solid rgba(255,255,255,0.65);
+}
+
+.kis-student-profile .detail-panel {
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.kis-student-profile .detail-panel h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.kis-student-profile .detail-panel h3 i {
+  font-size: 16px;
+}
+
+.kis-student-profile .kis-profile-value {
+  line-height: 1.5;
+  margin-bottom: 17px;
+}
+
+.kis-student-profile .kis-profile-action {
+  min-height: 50px;
+  text-align: left;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.kis-student-profile .kis-profile-action:focus-visible,
+.kis-student-profile #kis-campus-signout:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 3px;
+}
+
+.kis-student-profile .kis-profile-action:active {
+  background: #e5f0e8;
+  border-color: #166534;
+}
+
+.kis-student-profile #kis-campus-signout {
+  min-height: 52px;
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.kis-student-profile .kis-registration-form {
+  padding: 15px;
+  background: #f7faf7;
+  border: 1px solid #dce7df;
+  border-radius: 12px;
+}
+
+@media (max-width: 380px) {
+  .kis-student-profile .kis-profile-hero {
+    padding: 22px 17px;
+  }
+
+  .kis-student-profile .detail-panel {
+    padding: 16px;
+  }
+}
+
+
+/* KIS PROFILE DIGITAL ID QR BUTTON */
+
+.kis-student-profile .kis-profile-hero {
+  position: relative;
+}
+
+.kis-student-profile .kis-digital-id-trigger {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #14532d;
+  border: 2px solid #facc15;
+  border-radius: 12px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.kis-student-profile .kis-digital-id-trigger:active {
+  background: #facc15;
+  color: #14532d;
+}
+
+.kis-student-profile .kis-digital-id-trigger:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 3px;
+}
+
+
+/* KIS DIGITAL LEARNER ID MODAL */
+
+.kis-digital-id-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.kis-digital-id-card {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  background: #ffffff;
+  border: 3px solid #facc15;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+}
+
+.kis-digital-id-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.kis-digital-id-heading {
+  background: #14532d;
+  color: #ffffff;
+  padding: 28px 20px 20px;
+  text-align: center;
+}
+
+.kis-digital-id-heading h2 {
+  font-size: 17px;
+  margin: 0 0 5px;
+}
+
+.kis-digital-id-heading p {
+  color: #e5eee7;
+  font-size: 11px;
+  margin: 0 0 16px;
+}
+
+.kis-digital-id-heading span {
+  color: #facc15;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.kis-digital-id-body {
+  padding: 24px 20px;
+  text-align: center;
+  color: #17251b;
+}
+
+.kis-digital-id-photo {
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 12px;
+  border: 2px solid #14532d;
+  border-radius: 12px;
+  background: #e5eee7;
+  color: #14532d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+}
+
+.kis-digital-id-body h3 {
+  color: #14532d;
+  font-size: 19px;
+  margin: 8px 0 5px;
+  overflow-wrap: anywhere;
+}
+
+.kis-digital-id-body > p {
+  color: #647568;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.kis-digital-id-details {
+  background: #f5faf6;
+  border: 1px solid #dce7df;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: left;
+}
+
+.kis-digital-id-details p {
+  font-size: 13px;
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+
+.kis-digital-id-details p:last-child {
+  margin-bottom: 0;
+}
+
+.kis-digital-id-details strong {
+  color: #647568;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+.kis-digital-id-qr {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px dashed #14532d;
+  border-radius: 12px;
+  color: #14532d;
+}
+
+.kis-digital-id-qr > i {
+  font-size: 65px;
+}
+
+.kis-digital-id-qr p {
+  font-size: 11px;
+  font-weight: 800;
+  margin: 10px 0 5px;
+}
+
+.kis-digital-id-qr small {
+  color: #647568;
+  font-size: 10px;
+}
+
+
+/* KIS DIGITAL ID - TEST QR DISPLAY */
+.kis-digital-id-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  text-align: center;
+}
+
+#kis-digital-id-qr-code {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+#kis-digital-id-qr-code img,
+#kis-digital-id-qr-code canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.kis-digital-id-qr-logo {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  padding: 4px;
+  background: #ffffff;
+  border-radius: 7px;
+}
+
+
+/* Keep hidden Campus navigation hidden */
+.bottom-navigation[hidden] {
+  display: none !important;
+}
+
+/* KIS STUDENT DIGITAL ID PANEL */
+.kis-digital-id-panel {
+  margin: 20px 0;
+  padding: 22px 16px;
+  background: #ffffff;
+  border: 2px solid #14532d;
+  border-radius: 16px;
+  text-align: center;
+  color: #17251b;
+}
+
+.kis-digital-id-panel h3 {
+  color: #14532d;
+  margin: 0 0 14px;
+}
+
+.kis-digital-id-panel > p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.kis-student-qr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 180px;
+  margin: 16px auto;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #dce7df;
+  border-radius: 12px;
+}
+
+.kis-student-qr img,
+.kis-student-qr canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.kis-digital-id-panel .kis-profile-note {
+  color: #647568;
+  font-size: 11px;
+}
+
+/* DIGITAL LEARNER ID - RESPONSIVE QR */
+#kis-digital-id-qr-code {
+  width: 200px;
+  min-height: 200px;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+#kis-digital-id-qr-code img,
+#kis-digital-id-qr-code canvas {
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* KIS SIGN-IN SHOW/HIDE PASSWORD */
+.kis-password-field {
+  position: relative;
+  width: 100%;
+}
+
+.kis-password-field input {
+  width: 100%;
+  padding-right: 52px;
+  box-sizing: border-box;
+}
+
+.kis-toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #14532d;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 2;
+}
+
+.kis-toggle-password:focus-visible {
+  outline: 2px solid #facc15;
+  border-radius: 6px;
+}

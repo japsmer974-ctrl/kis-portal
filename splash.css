@@ -1,0 +1,257 @@
+/* KIS Smooth Animated Splash Screen */
+
+#kis-splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #ffffff;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease, visibility 0s linear 1s;
+  font-family: Arial, sans-serif;
+}
+
+#kis-splash-screen .splash-icon-stage,
+#kis-splash-screen .splash-logo-stage,
+#kis-splash-screen .splash-identity-stage,
+#kis-splash-screen .splash-loading-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.9s;
+}
+
+#kis-splash-screen .splash-icon-stage {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.splash-icon-stage img {
+  width: 145px;
+  height: 145px;
+  object-fit: contain;
+  animation: kis-icon-appear 1.2s ease both;
+  transform-origin: center;
+}
+
+.splash-logo-stage img {
+  width: min(75vw, 330px);
+  height: auto;
+  object-fit: contain;
+  transform: scale(0.35);
+  opacity: 0;
+}
+
+.splash-identity-stage img,
+.splash-loading-logo img {
+  width: min(55vw, 230px);
+  height: auto;
+  object-fit: contain;
+}
+
+.splash-identity-stage h1 {
+  max-width: 90%;
+  margin: 24px 0 0;
+  color: #14532d;
+  font-size: clamp(17px, 4vw, 24px);
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-align: center;
+  animation: kis-text-reveal 1s ease both;
+}
+
+.splash-loading-stage h2 {
+  margin: 28px 16px 24px;
+  color: #14532d;
+  font-size: clamp(15px, 3.8vw, 21px);
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.splash-loader {
+  width: min(65%, 260px);
+  height: 5px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #e5e7eb;
+}
+
+.splash-loader-progress {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #14532d, #facc15);
+}
+
+.splash-loading-stage p {
+  margin-top: 16px;
+  color: #64748b;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Stage 2: Zoom and blend into the official emblem. */
+
+#kis-splash-screen.show-zoom .splash-icon-stage {
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: 0s, 0.9s;
+}
+
+#kis-splash-screen.show-zoom .splash-icon-stage img {
+  animation: kis-icon-zoom 1.8s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+#kis-splash-screen.show-zoom .splash-logo-stage {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.35s, 0s;
+}
+
+#kis-splash-screen.show-zoom .splash-logo-stage img {
+  animation: kis-logo-reveal 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+/* Stage 3: Reveal the school identity. */
+
+#kis-splash-screen.show-identity .splash-logo-stage {
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: 0s, 0.9s;
+}
+
+#kis-splash-screen.show-identity .splash-identity-stage {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.2s, 0s;
+}
+
+/* Stage 4: Replace the school name with the motto and loading bar. */
+
+#kis-splash-screen.show-loading .splash-identity-stage {
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: 0s, 0.9s;
+}
+
+#kis-splash-screen.show-loading .splash-loading-stage {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.2s, 0s;
+}
+
+#kis-splash-screen.show-loading .splash-loader-progress {
+  animation: kis-loading-fill 3.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Final fade into the homepage. */
+
+#kis-splash-screen.hide-splash {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 1s ease, visibility 0s linear 1s;
+}
+
+/* Animation definitions. */
+
+@keyframes kis-icon-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes kis-icon-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(8);
+  }
+}
+
+@keyframes kis-logo-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes kis-text-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kis-loading-fill {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #kis-splash-screen,
+  #kis-splash-screen * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Official emblem opening */
+
+#kis-splash-screen .splash-identity-stage {
+  gap: 0;
+}
+
+#kis-splash-screen .splash-identity-stage img {
+  width: min(55vw, 230px);
+  height: auto;
+  object-fit: contain;
+  animation: kis-emblem-enter 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#kis-splash-screen .splash-identity-stage h1 {
+  margin-top: 12px;
+  animation: kis-text-reveal 1s ease 0.4s both;
+}
+
+@keyframes kis-emblem-enter {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-20px) scale(1);
+  }
+}
+

@@ -1,0 +1,285 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // =====================================
+    // AUTHENTICATION AND ADMINISTRATOR
+    // =====================================
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && request.auth.uid == "5B3FmfSx7lh3s3GTyQ8gMXrZlLI3";
+    }
+
+    function isApprovedUser() {
+      return signedIn()
+        && exists(
+          /databases/$(database)/documents/users/$(request.auth.uid)
+        )
+        && get(
+          /databases/$(database)/documents/users/$(request.auth.uid)
+        ).data.status == "approved";
+    }
+
+    function validName(name) {
+      return name is string
+        && name.size() >= 2
+        && name.size() <= 100;
+    }
+
+    function validEmail() {
+      return request.resource.data.email is string
+        && request.resource.data.email == request.auth.token.email;
+    }
+
+    function validSection(section) {
+      return section is string
+        && section in [
+          "Grade 7 - Amethyst",
+          "Grade 8 - Archimedes",
+          "Grade 9 - Anthurium",
+          "Grade 10 - Aristotle"
+        ];
+    }
+
+    // =====================================
+    // USER REGISTRATION VALIDATION
+    // =====================================
+
+    function validStudentRegistration(data) {
+      return data.keys().hasOnly([
+          "uid", "role", "status", "fullName",
+          "studentNumber", "gradeSection",
+          "email", "createdAt"
+        ])
+        && data.keys().hasAll([
+          "uid", "role", "status", "fullName",
+          "studentNumber", "gradeSection",
+          "email", "createdAt"
+        ])
+        && data.role == "student"
+        && data.studentNumber is string
+        && data.studentNumber.matches("^[0-9]{12}$")
+        && validSection(data.gradeSection);
+    }
+
+    function validParentRegistration(data) {
+      return data.keys().hasOnly([
+          "uid", "role", "status", "fullName",
+          "email", "createdAt"
+        ])
+        && data.keys().hasAll([
+          "uid", "role", "status", "fullName",
+          "email", "createdAt"
+        ])
+        && data.role == "parent";
+    }
+
+    function validTeacherRegistration(data) {
+      return data.role == "teacher"
+        && data.teacherNumber is string
+        && data.teacherNumber.size() >= 3
+        && data.teacherNumber.size() <= 30
+        && data.teachingRole in [
+          "Adviser",
+          "Not an Adviser"
+        ]
+        && (
+          (
+            data.teachingRole == "Adviser"
+            && data.keys().hasOnly([
+              "uid", "role", "status", "fullName",
+              "teacherNumber", "teachingRole",
+              "advisoryGradeSection",
+              "email", "createdAt"
+            ])
+            && data.keys().hasAll([
+              "uid", "role", "status", "fullName",
+              "teacherNumber", "teachingRole",
+              "advisoryGradeSection",
+              "email", "createdAt"
+            ])
+            && validSection(data.advisoryGradeSection)
+          )
+          ||
+          (
+            data.teachingRole == "Not an Adviser"
+            && data.keys().hasOnly([
+              "uid", "role", "status", "fullName",
+              "teacherNumber", "teachingRole",
+              "email", "createdAt"
+            ])
+            && data.keys().hasAll([
+              "uid", "role", "status", "fullName",
+              "teacherNumber", "teachingRole",
+              "email", "createdAt"
+            ])
+          )
+        );
+    }
+
+    // =====================================
+    // USER PROFILES
+    // =====================================
+
+    match /users/{userId} {
+
+      allow create: if signedIn()
+        && request.auth.uid == userId
+        && request.resource.data.uid == userId
+        && request.resource.data.status == "pending"
+        && validName(request.resource.data.fullName)
+        && validEmail()
+        && request.resource.data.createdAt == request.time
+        && (
+          validStudentRegistration(request.resource.data)
+          || validParentRegistration(request.resource.data)
+          || validTeacherRegistration(request.resource.data)
+        );
+
+      allow read: if isAdmin()
+        || (
+          signedIn()
+          && request.auth.uid == userId
+        );
+
+      allow update: if isAdmin()
+        || (
+          signedIn()
+          && request.auth.uid == userId
+          && request.resource.data.diff(resource.data)
+            .affectedKeys()
+            .hasOnly([
+              "fullName",
+              "email",
+              "updatedAt"
+            ])
+          && validName(request.resource.data.fullName)
+          && validEmail()
+          && request.resource.data.updatedAt == request.time
+        );
+
+      allow delete: if isAdmin();
+    }
+
+    // =====================================
+    // PUBLISHED LESSONS
+    // =====================================
+
+    match /lessons/{lessonId} {
+
+      allow read: if isAdmin()
+        || resource.data.status == "published";
+
+      allow create, update, delete: if isAdmin();
+    }
+
+    // =====================================
+    // QUIZZES
+    // =====================================
+
+    match /quizzes/{quizId} {
+
+      allow read: if isAdmin()
+        || (
+          isApprovedUser()
+          && resource.data.status == "published"
+        );
+
+      allow create, update, delete: if isAdmin();
+    }
+
+    // =====================================
+    // CAMPUS CALENDAR
+    // =====================================
+
+    match /calendarEvents/{eventId} {
+
+      allow read: if isAdmin()
+        || resource.data.status == "published";
+
+      allow create, update, delete: if isAdmin();
+    }
+
+    // =====================================
+    // PARENT-CHILD VERIFICATION REQUESTS
+    // =====================================
+
+    match /parentChildRequests/{requestId} {
+
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly([
+          "parentUid",
+          "childStudentNumber",
+          "childGradeSection",
+          "status",
+          "createdAt"
+        ])
+        && request.resource.data.keys().hasAll([
+          "parentUid",
+          "childStudentNumber",
+          "childGradeSection",
+          "status",
+          "createdAt"
+        ])
+        && request.resource.data.parentUid == request.auth.uid
+        && request.resource.data.status == "pending"
+        && request.resource.data.childStudentNumber is string
+        && request.resource.data.childStudentNumber.matches(
+          "^[0-9]{12}$"
+        )
+        && validSection(
+          request.resource.data.childGradeSection
+        )
+        && request.resource.data.createdAt == request.time
+        && exists(
+          /databases/$(database)/documents/users/$(request.auth.uid)
+        )
+        && get(
+          /databases/$(database)/documents/users/$(request.auth.uid)
+        ).data.role == "parent";
+
+      allow read: if isAdmin()
+        || (
+          signedIn()
+          && resource.data.parentUid == request.auth.uid
+        );
+
+      allow update, delete: if isAdmin();
+    }
+
+    // =====================================
+    // VERIFIED PARENT-CHILD LINKS
+    // =====================================
+
+    match /parentLinks/{linkId} {
+
+      // Admins can read all links.
+      // Parents can read only their own active links.
+      allow read: if isAdmin()
+        || (
+          signedIn()
+          && resource.data.parentUid == request.auth.uid
+          && resource.data.status == "active"
+        );
+
+      // Only administrators can create, update, or delete links.
+      allow create, update, delete: if isAdmin();
+    }
+
+    // =====================================
+    // DEFAULT DENY
+    // =====================================
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
